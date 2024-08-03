@@ -17,23 +17,23 @@ const Portfolio = () => {
     : portfolioItems.filter(item => item.category === selectedCategory);
 
   return (
-    <div className="container mx-auto p-8">
-      <div class="mb-8">
-            <h1 class="text-3xl font-bold text-blue-700">Portfolio</h1>
-            <hr className="border-2 border-green-600 w-20 mb-5 font-bold" />
-        </div>
-      <div className="flex justify-center mb-8">
+    <div className="container mx-auto p-4 md:p-8">
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-bold text-blue-700">Portfolio</h1>
+        <hr className="border-2 border-green-600 w-20 mx-auto mb-5 font-bold" />
+      </div>
+      <div className="flex justify-center mb-8 flex-wrap">
         {['All', 'My Photography', 'My Gallery', 'YouTube Video'].map(category => (
           <button
             key={category}
-            className={`px-4 py-2 mx-2 rounded ${selectedCategory === category ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}`}
+            className={`px-4 py-2 mx-2 my-2 rounded ${selectedCategory === category ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredItems.map(item => (
           <div key={item.id} className="bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-bold mb-2">{item.title}</h2>
